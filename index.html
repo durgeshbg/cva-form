@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="index.js" defer></script>
     <title>CVA</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
+  </head>
+  <body>
+    <form action="#">
+      <div class="form-row">
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email" required />
+        <span class="error"></span>
+      </div>
+      <div class="form-row">
+        <label for="country">Country: </label>
+        <input type="text" name="country" id="country" required />
+        <span class="error"></span>
+      </div>
+      <div class="form-row">
+        <label for="zipcode">Zipcode: </label>
+        <input type="text" name="zipcode" id="zipcode" required />
+        <span class="error"></span>
+      </div>
+      <div class="form-row">
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" required />
+        <span class="error"></span>
+      </div>
+      <div class="form-row">
+        <label for="cpassword">Confirm Password: </label>
+        <input type="password" name="cpassword" id="cpassword" required />
+        <span class="error"></span>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
 </html>
