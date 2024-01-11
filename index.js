@@ -20,6 +20,54 @@ function checkEmail(e) {
   }
 }
 
+function checkCountry(e) {
+  const country = e.target;
+  const americanCountries = [
+    'antigua and barbuda',
+    'argentina',
+    'bahamas',
+    'barbados',
+    'belize',
+    'bolivia',
+    'brazil',
+    'canada',
+    'chile',
+    'colombia',
+    'costa rica',
+    'cuba',
+    'dominica',
+    'dominican republic',
+    'ecuador',
+    'el salvador',
+    'grenada',
+    'guatemala',
+    'guyana',
+    'haiti',
+    'honduras',
+    'jamaica',
+    'mexico',
+    'nicaragua',
+    'panama',
+    'paraguay',
+    'peru',
+    'saint kitts and nevis',
+    'saint lucia',
+    'saint vincent and the grenadines',
+    'suriname',
+    'trinidad and tobago',
+    'united states',
+    'uruguay',
+    'venezuela',
+  ];
+  if (country.validity.valueMissing) {
+    displayErr(country, 'Country is required!');
+  } else if (!americanCountries.includes(country.value.toLowerCase())) {
+    displayErr(country, 'Not a valid american country!');
+  } else {
+    displayErr(country, '');
+  }
+}
+
 function checkZipcode(e) {
   const pc = e.target;
   if (pc.validity.valueMissing) {
@@ -32,4 +80,5 @@ function checkZipcode(e) {
 }
 
 document.querySelector('#email').addEventListener('input', checkEmail);
+document.querySelector('#country').addEventListener('input', checkCountry);
 document.querySelector('#zipcode').addEventListener('input', checkZipcode);
