@@ -8,7 +8,7 @@
     <title>CVA</title>
   </head>
   <body>
-    <form action="#">
+    <form action="#" novalidate>
       <div class="form-row">
         <label for="email">Email: </label>
         <input type="email" name="email" id="email" required />
@@ -21,7 +21,13 @@
       </div>
       <div class="form-row">
         <label for="zipcode">Zipcode: </label>
-        <input type="text" name="zipcode" id="zipcode" required />
+        <input
+          type="text"
+          name="zipcode"
+          id="zipcode"
+          pattern="((\d{5})(\-\d{4})?)"
+          required
+        />
         <span class="error"></span>
       </div>
       <div class="form-row">
