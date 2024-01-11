@@ -41,11 +41,11 @@ input:focus {
 }
 
 .valid {
-  border: 1px solid #99ff00;
+  border: 2px solid lightgreen;
 }
 
 .invalid {
-  border: 1px solid red;
+  border: 2px solid red;
 }
 
 button {
