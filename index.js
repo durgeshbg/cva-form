@@ -1,12 +1,13 @@
 function displayErr(elem, msg) {
-  elem.nextElementSibling.textContent = msg;
   if (msg == '') {
     elem.classList.add('valid');
     elem.classList.remove('invalid');
   } else {
     elem.classList.add('invalid');
     elem.classList.remove('valid');
+    msg = '*' + msg;
   }
+  elem.nextElementSibling.textContent = msg;
 }
 
 function checkEmail(e) {
@@ -78,7 +79,32 @@ function checkZipcode(e) {
     displayErr(pc, '');
   }
 }
+function checkPassword(e) {
+  const password = e.target;
+  if (password.validity.valueMissing) {
+    displayErr(password, 'Password missing!');
+  } else if (password.value.length < 8) {
+    displayErr(password, 'Password should atleast have 8 characters!');
+  } else {
+    displayErr(password, '');
+  }
+}
+function checkCpassword(e) {
+  const cpassword = e.target;
+  const password = document.querySelector('#password');
+  if (cpassword.validity.valueMissing) {
+    displayErr(cpassword, 'Password missing!');
+  } else if (cpassword.value.length < 8) {
+    displayErr(cpassword, 'Password should atleast have 8 characters!');
+  } else if (cpassword.value !== password.value) {
+    displayErr(cpassword, "Passwords do'nt match!");
+  } else {
+    displayErr(cpassword, '');
+  }
+}
 
 document.querySelector('#email').addEventListener('input', checkEmail);
 document.querySelector('#country').addEventListener('input', checkCountry);
 document.querySelector('#zipcode').addEventListener('input', checkZipcode);
+document.querySelector('#password').addEventListener('input', checkPassword);
+document.querySelector('#cpassword').addEventListener('input', checkCpassword);
